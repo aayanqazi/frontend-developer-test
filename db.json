@@ -1,0 +1,169 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 2,
+      "email": "admin1@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 3,
+      "email": "admin12@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 4,
+      "email": "admin123@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 5,
+      "email": "admin1234@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 6,
+      "email": "admin12345@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 7,
+      "email": "admin123456@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 8,
+      "email": "admin1234567@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 9,
+      "email": "admin12345677@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "id": 10,
+      "email": "admin123123456789@gmail.com",
+      "password": "123123",
+      "role": "biker"
+    },
+    {
+      "email": "manager@gmail.com",
+      "password": "123123",
+      "role": "manager"
+    }
+  ],
+  "bikers": [
+    {
+      "bikerId": 1,
+      "username": "Biker 1"
+    },
+    {
+      "bikerId": 2,
+      "username": "Biker 2"
+    },
+    {
+      "bikerId": 3,
+      "username": "Biker 3"
+    },
+    {
+      "bikerId": 4,
+      "username": "Biker 4"
+    },
+    {
+      "bikerId": 5,
+      "username": "Biker 5"
+    },
+    {
+      "bikerId": 6,
+      "username": "Biker 6"
+    },
+    {
+      "bikerId": 7,
+      "username": "Biker 7"
+    },
+    {
+      "bikerId": 8,
+      "username": "Biker 8"
+    },
+    {
+      "bikerId": 9,
+      "username": "Biker 9"
+    },
+    {
+      "bikerId": 10,
+      "username": "Biker 10"
+    }
+  ],
+  "parcels": [
+    {
+      "order_id": "ord1",
+      "origin": "Karachi",
+      "distination": "Lahore",
+      "assignee": "5",
+      "status": "ASSIGNED"
+    },
+    {
+      "order_id": "ord2",
+      "origin": "Lahore",
+      "distination": "Karachi",
+      "assignee": "5",
+      "status": "ASSIGNED"
+    },
+    {
+      "order_id": "ord3",
+      "origin": "Islamabad",
+      "distination": "India",
+      "assignee": "6",
+      "status": "PICKED_UP"
+    },
+    {
+      "order_id": "ord4",
+      "origin": "Islamabad",
+      "distination": "America",
+      "assignee": 1,
+      "status": "DELIVERED"
+    },
+    {
+      "order_id": "ord5",
+      "origin": "Karachi",
+      "distination": "Lahore",
+      "assignee": "5",
+      "status": "ASSIGNED"
+    },
+    {
+      "order_id": "ord6",
+      "origin": "ABC",
+      "distination": "CDS",
+      "assignee": "7",
+      "status": "ASSIGNED"
+    },
+    {
+      "order_id": "ord7",
+      "origin": "Quetta",
+      "distination": "USA",
+      "assignee": "8",
+      "status": "PICKED_UP"
+    },
+    {
+      "order_id": "ord8",
+      "origin": "WORLD",
+      "distination": "Level",
+      "assignee": 2,
+      "status": "DELIVERED"
+    }
+  ]
+}
