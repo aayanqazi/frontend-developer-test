@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
 
 
 app.post('/login', (req, res) => {
-    console.log(req.body)
     var data = db.get('login')
-        .find({ role: req.body.role })
+        .find({ role: req.body.role, email: req.body.email })
         .value()
-    if (req.body.email === data.email && req.body.password === data.password) {
+        console.log(data);
+    if (data) {
         res.status(200);
         res.send({ message: 'Successfull', data });
     }
@@ -77,7 +77,37 @@ app.put('/parcels', (req, res) => {
         res.status(400);
         res.send({ error: "Error! Something went wrong" });
     }
+});
+
+app.post('/myData', (req, res) => {
+    var data = db.get('parcels')
+    .filter(val => val.assignee === (req.body.id).toString())
+    .value()
+    console.log(data)
+    if(req.body.id && req.body.email){
+        res.status(200);
+        res.send({ message: 'Successfull', data: data });
+    }
+    else {
+        res.status(400);
+        res.send({ error: "Error! Something went wrong" });
+    }
 })
 
+app.put('/myData', (req, res) => {
+    var obj = { status: req.body.status, timeStamp: req.body.timeStamp };
+    var order = db.get('parcels')
+        .find({ order_id: req.body.order_id })
+        .assign(obj)
+        .write();
+    if (order) {
+        res.status(200);
+        res.send({ message: 'Successfull', order: order });
+    }
+    else {
+        res.status(400);
+        res.send({ error: "Error! Something went wrong" });
+    }
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { listType5 } from '../../styles/manager.scss';
 import OrderMiddleware from '../../middleware/order';
 import Modal from 'react-responsive-modal';
+import axios from 'axios';
 
 class Manager extends React.Component {
     state = {
@@ -13,13 +14,13 @@ class Manager extends React.Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:3002/bikers')
-            .then(arr => arr.json())
-            .then(data => {
+        axios.get('http://localhost:3002/bikers')
+            .then(val => {
                 this.setState({
-                    biker: data.biker
+                    biker: val.data.biker
                 });
-            });
+            })
+            .catch(err => console.log(err));
         this.props.getOrders();
     }
     onOpenModal = (data) => {
@@ -36,27 +37,19 @@ class Manager extends React.Component {
             order_id: this.state.selectedData[0].order_id,
             biker_id: this.state.biker_id
         };
-        if(this.state.selectedData[0].status === 'WAITING') {
+        if (this.state.selectedData[0].status === 'WAITING') {
             obj.status = 'ASSIGNED';
         }
-        fetch('http://localhost:3002/parcels', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(obj)
-        })
-            .then(arr => arr.json())
+        axios.put('http://localhost:3002/parcels', obj)
             .then(() => {
                 this.onCloseModal();
-                this.props.getOrders();
-            });
+            })
+            .catch(err => alert(err));
     }
 
     render() {
         const { open } = this.state;
-        console.log(this.state);
-        if (this.props.orders) {
+        if (!this.props.orders.isError) {
             return (
                 <div>
                     <h1 style={{ textAlign: 'center' }}>
@@ -65,16 +58,27 @@ class Manager extends React.Component {
                     <h4 style={{ textAlign: 'center' }}>
                         Order List
                     </h4>
+                    <div style={{ textAlign: 'center' }}>
+                        <button onClick={() => { localStorage.clear(); this.props.history.push('/'); }}>
+                            LogOut
+                    </button>
+                    </div>
                     <Modal open={open} onClose={this.onCloseModal} center>
                         <h2>Please Assign Order of Biker</h2>
                         <div>
                             <span>ASSIGN: </span>
-                            <select onChange={(event) => this.setState({
-                                biker_id: event.target.value
-                            })}>
+                            <select value={this.state.selectedData.length ? this.state.selectedData[0].assignee : ''} onChange={(event) => {
+                                const selected = this.state.selectedData;
+                                selected[0].assignee = event.target.value;
+                                this.setState({
+                                    biker_id: event.target.value,
+                                    selectedData: selected
+                                });
+                            }
+                            }>
                                 {this.state.biker.map((val, ind) => {
                                     return (
-                                        <option key={ind} value={val.bikerId} selected={this.state.selectedData.length > 0 ? (this.state.selectedData[0].assignee === val.bikerId) : false}>
+                                        <option key={ind} value={val.bikerId}>
                                             {val.username}
                                         </option>
                                     );

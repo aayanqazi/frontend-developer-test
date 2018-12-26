@@ -13,6 +13,8 @@ class Login extends React.Component {
     componentWillReceiveProps(newProps) {
         if (newProps.login.data.data && newProps.login.data.data.role === 'manager') {
             this.props.history.push('/manager');
+        } else if (newProps.login.data.data && newProps.login.data.data.role === 'biker') {
+            this.props.history.push('/biker');
         }
     }
 

@@ -1,22 +1,18 @@
 import Action from './../actions/index';
+import axios from 'axios';
 
 export default class OrderMiddleware {
     static order() {
         return (dispatch) => {
             dispatch(Action.order());
-            OrderMiddleware.getList(dispatch, );
+            OrderMiddleware.getList(dispatch);
         };
     }
 
     static getList(dispatch) {
-        fetch('http://localhost:3002/parcels')
-            .then(arr => arr.json())
-            .then(data => {
-                if (data.error) {
-                    dispatch(Action.orderFailed(data));
-                } else {
-                    dispatch(Action.orderSuccess(data));
-                }
+        axios.get('http://localhost:3002/parcels')
+            .then(val => {
+                dispatch(Action.orderSuccess(val.data));
             })
             .catch(err => dispatch(Action.orderFailed(err)));
     }

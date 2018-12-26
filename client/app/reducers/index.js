@@ -38,9 +38,28 @@ const order = (state = {
     }
 };
 
+const biker = (state = {
+    isLoading: false,
+    isError: false,
+    isSuccess: false,
+    data: []
+}, action) => {
+    switch (action.type) {
+        case types.BIKER:
+            return { ...state, isLoading: true };
+        case types.BIKERSUCCESS:
+            return { ...state, isLoading: false, isError: false, isSuccess: true, data: action.payload };
+        case types.BIKERFAILED:
+            return { ...state, isLoading: false, isError: true, isSuccess: false, data: action.payload };
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     login,
     order,
+    biker,
     routing
 });
 

@@ -2,7 +2,6 @@ import loginAction from './../actions/index';
 
 export default class AuthMiddleware {
     static login(credentials) {
-        console.log('test', credentials);
         return (dispatch) => {
             dispatch(loginAction.login());
             AuthMiddleware.authenticateUser(dispatch, credentials);

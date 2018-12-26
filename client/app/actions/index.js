@@ -41,4 +41,25 @@ export default class Action {
             payload: res
         };
     }
+
+    static biker(data) {
+        return {
+            type: types.BIKER,
+            payload: data
+        };
+    }
+
+    static bikerSuccess(res) {
+        return {
+            type: types.BIKERSUCCESS,
+            payload: res.data
+        };
+    }
+
+    static bikerFailed(res) {
+        return {
+            type: types.BIKERFAILED,
+            payload: res
+        };
+    }
 }

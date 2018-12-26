@@ -113,56 +113,58 @@
       "order_id": "ord1",
       "origin": "Karachi",
       "distination": "Lahore",
-      "assignee": "5",
-      "status": "ASSIGNED"
+      "assignee": "1",
+      "status": "PICKED_UP",
+      "timeStamp": "2018-12-26T13:49:07.883Z"
     },
     {
       "order_id": "ord2",
       "origin": "Lahore",
       "distination": "Karachi",
-      "assignee": "5",
-      "status": "ASSIGNED"
+      "assignee": "1",
+      "status": "DELIVERED",
+      "timeStamp": "2018-12-26T13:48:49.611Z"
     },
     {
       "order_id": "ord3",
       "origin": "Islamabad",
       "distination": "India",
-      "assignee": "6",
+      "assignee": "1",
       "status": "PICKED_UP"
     },
     {
       "order_id": "ord4",
       "origin": "Islamabad",
       "distination": "America",
-      "assignee": 1,
+      "assignee": "4",
       "status": "DELIVERED"
     },
     {
       "order_id": "ord5",
       "origin": "Karachi",
       "distination": "Lahore",
-      "assignee": "5",
+      "assignee": "3",
       "status": "ASSIGNED"
     },
     {
       "order_id": "ord6",
       "origin": "ABC",
       "distination": "CDS",
-      "assignee": "7",
+      "assignee": "3",
       "status": "ASSIGNED"
     },
     {
       "order_id": "ord7",
       "origin": "Quetta",
       "distination": "USA",
-      "assignee": "8",
+      "assignee": "5",
       "status": "PICKED_UP"
     },
     {
       "order_id": "ord8",
       "origin": "WORLD",
       "distination": "Level",
-      "assignee": 2,
+      "assignee": "1",
       "status": "DELIVERED"
     }
   ]
